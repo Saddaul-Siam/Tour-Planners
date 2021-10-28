@@ -4,12 +4,13 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Header from './components/Shared/Header/Header';
 import Home from './components/Home/Home/Home';
-import Services from './components/Home/Services/Services';
+import Tours from './components/Home/Tours/Tours';
 import NotFound from './components/Home/NotFound/NotFound';
+import ServicesDetails from './components/Home/ServicesDetails/ServicesDetails';
+import AddTours from './components/Home/AddTours/AddTours';
 
 function App() {
   return (
@@ -23,8 +24,14 @@ function App() {
           <Route path="/home">
             <Home></Home>
           </Route>
-          <Route path="/services">
-            <Services></Services>
+          <Route path="/tours">
+            <Tours></Tours>
+          </Route>
+          <Route path="/service/:id">
+            <ServicesDetails></ServicesDetails>
+          </Route>
+          <Route path="/addTours">
+            <AddTours></AddTours>
           </Route>
           <Route path="*">
             <NotFound></NotFound>
