@@ -9,8 +9,8 @@ import Header from './components/Shared/Header/Header';
 import Home from './components/Home/Home/Home';
 import Tours from './components/Home/Tours/Tours';
 import NotFound from './components/Home/NotFound/NotFound';
-import ServicesDetails from './components/Home/ServicesDetails/ServicesDetails';
 import AddTours from './components/Home/AddTours/AddTours';
+import BookingDetails from './components/Home/BookingDetails/BookingDetails';
 
 function App() {
   return (
@@ -27,11 +27,11 @@ function App() {
           <Route path="/tours">
             <Tours></Tours>
           </Route>
-          <Route path="/service/:id">
-            <ServicesDetails></ServicesDetails>
-          </Route>
           <Route path="/addTours">
             <AddTours></AddTours>
+          </Route>
+          <Route path="/bookingDetails">
+            <BookingDetails />
           </Route>
           <Route path="*">
             <NotFound></NotFound>

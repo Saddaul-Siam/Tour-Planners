@@ -13,6 +13,7 @@ const Header = () => {
             <Nav.Link><Link to="/home">Home</Link></Nav.Link>
             <Nav.Link><Link to="/tours">Tours</Link></Nav.Link>
             <Nav.Link><Link to="/addTours">Add Tours</Link></Nav.Link>
+            <Nav.Link><Link to="/bookingDetails">Booking Details</Link></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
