@@ -10,7 +10,7 @@ const Header = () => {
   const { user, SignOut } = useAuth()
 
   const email = `${user.email}`;
-  console.log(email);
+  // console.log(email);
   useEffect(() => {
     fetch(`http://localhost:5000/myOrders/${email}`)
       .then((res) => res.json())

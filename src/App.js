@@ -14,6 +14,7 @@ import BookingDetails from './components/Home/BookingDetails/BookingDetails';
 import AuthProvider from './Context/authProvider';
 import Login from './components/Home/Login/Login';
 import PrivetRoute from './components/PrivetRoute/PriverRoute';
+import Shipping from './components/Home/Shipping/Shipping';
 
 function App() {
   return (
@@ -40,6 +41,9 @@ function App() {
             <PrivetRoute path="/bookingDetails">
               <BookingDetails />
             </PrivetRoute>
+            <Route path="/shipping">
+              <Shipping></Shipping>
+            </Route>
             <Route path="*">
               <NotFound></NotFound>
             </Route>

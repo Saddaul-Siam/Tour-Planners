@@ -19,7 +19,7 @@ const Tours = () => {
     data.email = `${user.email}`;
     data.status = "pending";
     console.log(data);
-    fetch(`http://localhost:5000/addOrders`, {
+    fetch(`http://localhost:5000/addBooking`, {
       method: "POST",
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(data),
