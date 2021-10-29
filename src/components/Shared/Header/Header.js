@@ -14,25 +14,20 @@ const Header = () => {
     fetch(`http://localhost:5000/myBooking/${email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
-  }, [email]);
+  },[email]);
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Link to="/"> <Navbar.Brand>React-Bootstrap</Navbar.Brand></Link>
+        <Navbar.Brand><Link to="/">React-Bootstrap</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
-            <Link to="/home"> <Nav.Link>Home</Nav.Link></Link>
-
-            <Link to="/tours"> <Nav.Link>Tours</Nav.Link></Link>
-
-            <Link to="/addTours"><Nav.Link>Add Tours</Nav.Link></Link>
-
-            <Link to="/bookingDetails"><Nav.Link>Booking Details</Nav.Link></Link>
-
-            <Link to="/bookingDetails"><Nav.Link><i className="bi bi-cart2"></i> {orders.length}</Nav.Link></Link>
-
+            <Nav.Link><Link to="/home">Home</Link></Nav.Link>
+            <Nav.Link><Link to="/tours">Tours</Link></Nav.Link>
+            <Nav.Link><Link to="/addTours">Add Tours</Link></Nav.Link>
+            <Nav.Link><Link to="/bookingDetails">Booking Details</Link></Nav.Link>
+            <Nav.Link><Link to="/bookingDetails"><i className="bi bi-cart2"></i> {orders.length}</Link></Nav.Link>
             {user.displayName ? <Nav.Link className="nav-link disabled text-white" to="">{user.displayName}</Nav.Link>
               : <Link className="nav-link disabled" to="">{user.email}</Link>}
 

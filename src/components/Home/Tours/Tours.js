@@ -30,7 +30,7 @@ const Tours = () => {
         .then(res => res.json())
         .then(result => {
           if (result.insertedId) {
-            alert("add hoise boss ");
+            alert("Successfully Added !! See Details On Booking Details Route ");
           }
           else {
             alert("add korte pari nai");
