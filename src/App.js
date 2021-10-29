@@ -11,33 +11,41 @@ import Tours from './components/Home/Tours/Tours';
 import NotFound from './components/Home/NotFound/NotFound';
 import AddTours from './components/Home/AddTours/AddTours';
 import BookingDetails from './components/Home/BookingDetails/BookingDetails';
+import AuthProvider from './Context/authProvider';
+import Login from './components/Home/Login/Login';
+import PrivetRoute from './components/PrivetRoute/PriverRoute';
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Header></Header>
-        <Switch>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route path="/home">
-            <Home></Home>
-          </Route>
-          <Route path="/tours">
-            <Tours></Tours>
-          </Route>
-          <Route path="/addTours">
-            <AddTours></AddTours>
-          </Route>
-          <Route path="/bookingDetails">
-            <BookingDetails />
-          </Route>
-          <Route path="*">
-            <NotFound></NotFound>
-          </Route>
-        </Switch>
-      </Router >
+      <AuthProvider>
+        <Router>
+          <Header></Header>
+          <Switch>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
+            <Route path="/home">
+              <Home></Home>
+            </Route>
+            <Route path="/tours">
+              <Tours></Tours>
+            </Route>
+            <PrivetRoute path="/addTours">
+              <AddTours></AddTours>
+            </PrivetRoute>
+            <Route path="/login">
+              <Login></Login>
+            </Route>
+            <PrivetRoute path="/bookingDetails">
+              <BookingDetails />
+            </PrivetRoute>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
+          </Switch>
+        </Router >
+      </AuthProvider>
     </div >
   );
 }

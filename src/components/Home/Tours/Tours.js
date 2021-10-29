@@ -2,10 +2,11 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
+import useAuth from '../../../Hooks/useAuth';
 
 const Tours = () => {
   const [tours, setTours] = useState([]);
-
+  const { user } = useAuth()
 
   useEffect(() => {
     fetch("http://localhost:5000/tours")
@@ -15,16 +16,16 @@ const Tours = () => {
 
   const handleAddToCart = (index) => {
     const data = tours[index];
-    data.email = "ami@gmail.com";
+    data.email = `${user.email}`;
     data.status = "pending";
     console.log(data);
     fetch(`http://localhost:5000/addOrders`, {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      headers: { 'content-type': 'application/json' },
       body: JSON.stringify(data),
     })
-      .then((res) => res.json())
-      .then((result) => {
+      .then(res => res.json())
+      .then(result => {
         console.log(result);
         if (result.insertedId) {
           alert("add hoise boss ");
