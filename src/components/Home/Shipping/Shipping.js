@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router';
 import useAuth from '../../../Hooks/useAuth';
 import './Shipping.css'
 
 const Shipping = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const { user } = useAuth();
-  const history = useHistory();
 
   const [orders, setOrders] = useState([])
 
@@ -15,51 +13,36 @@ const Shipping = () => {
     fetch(`http://localhost:5000/myBooking/${user.email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
-  }, []);
-
-  const handleProcedToCheckout = () => {
-
-    /* const data = orders;
-    console.log(data);
-    fetch(`http://localhost:5000/addOrder`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
-      })
-      .finally(() => {
-        history.push('/shipping')
-      }) */
-  }
+  }, [user.email]);
 
   const onSubmit = data => {
-    // const savedCart = getStoredCart();
     data.order = orders
-
-    // const data = orders;
-    console.log(data);
     fetch(`http://localhost:5000/addOrder`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     })
       .then(res => res.json())
-      .then(data => {
-        console.log(data)
-      })
-    //   .then(res => res.json())
-    //   .then(result => {
-    //     if (result.insertedId) {
-    //       alert('Order processed Successfully');
-    //       // clearTheCart();
-    //       // reset();
+      .then(result => {
+        if (result.insertedId) {
+          alert('Order processed Successfully');
+          handleDelete()
+          reset();
+          window.location.reload();
+        }
+      });
+  };
 
-    //     }
-    //   });
-    // history.push('/placeorder')
+  const handleDelete = () => {
+    const url = `http://localhost:5000/deleteTours`
+    console.log(url);
+    fetch(url, {
+      method: 'DELETE',
+    })
+      .then(res => res.json())
+      .then(result => {
+        console.log(result);
+      })
   };
   return (
     <div className="d-flex justify-content-center">

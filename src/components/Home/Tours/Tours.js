@@ -2,11 +2,13 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
+import { useHistory } from 'react-router';
 import useAuth from '../../../Hooks/useAuth';
 
 const Tours = () => {
   const [tours, setTours] = useState([]);
   const { user } = useAuth()
+  const history = useHistory()
 
   useEffect(() => {
     fetch("http://localhost:5000/tours")
@@ -15,25 +17,29 @@ const Tours = () => {
   }, []);
 
   const handleAddToCart = (index) => {
-    const data = tours[index];
-    data.email = `${user.email}`;
-    data.status = "pending";
-    console.log(data);
-    fetch(`http://localhost:5000/addBooking`, {
-      method: "POST",
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(data),
-    })
-      .then(res => res.json())
-      .then(result => {
-        console.log(result);
-        if (result.insertedId) {
-          alert("add hoise boss ");
-        }
-        else {
-          alert("add korte pari nai");
-        }
-      });
+    if (user.email) {
+      const data = tours[index];
+      data.email = `${user.email}`;
+      data.status = "pending";
+      console.log(data);
+      fetch(`http://localhost:5000/addBooking`, {
+        method: "POST",
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+        .then(res => res.json())
+        .then(result => {
+          if (result.insertedId) {
+            alert("add hoise boss ");
+          }
+          else {
+            alert("add korte pari nai");
+          }
+        });
+    }
+    else {
+      history.push('/login')
+    }
   };
   return (
     <div>

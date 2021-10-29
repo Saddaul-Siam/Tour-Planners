@@ -7,7 +7,8 @@ import useAuth from '../../../Hooks/useAuth';
 const BookingDetails = () => {
   const { user } = useAuth()
   const [booking, setBooking] = useState([]);
-  const [isDeleted, setIsDeleted] = useState(false)
+  const history = useHistory();
+  const [isDeleted, setIsDeleted] = useState(false);
   const email = `${user.email}`;
 
   useEffect(() => {
@@ -18,34 +19,23 @@ const BookingDetails = () => {
 
   const handleDelete = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/deleteTours/${id}`, {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' }
-    })
-      .then(res => res.json())
-      .then(result => {
-        setIsDeleted(result);
-
+    const proceed = window.confirm('Are you sure you want to delete?');
+    if (proceed) {
+      fetch(`http://localhost:5000/deleteTours/${id}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' }
       })
+        .then(res => res.json())
+        .then(result => {
+          if (result.deletedCount > 0) {
+            alert('Deleted successfully')
+          }
+          setIsDeleted(result);
+        })
+    }
   };
 
-  const history = useHistory()
-
   const handleProcedToCheckout = () => {
-    /* const data = booking;
-    console.log(data);
-    fetch(`http://localhost:5000/addOrder`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
-      })
-      .finally(() => {
-        history.push('/shipping')
-      }) */
     history.push('/shipping')
   }
 
