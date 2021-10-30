@@ -6,14 +6,14 @@ FirebaseAuthentication()
 
 const useFirebase = () => {
   const [user, setUser] = useState({})
-  const [error, setError] = useState([])
+  const [errors, setErrors] = useState([])
   const [isLoading, setIsLoading] = useState(true);
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
 
   const handleGoogleSignIn = () => {
     return signInWithPopup(auth, provider)
-    
+
   }
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -21,7 +21,7 @@ const useFirebase = () => {
         setUser(user)
       } else {
         setUser({})
-        setError("")
+        setErrors("")
       }
       setIsLoading(false)
     });
@@ -33,28 +33,21 @@ const useFirebase = () => {
       .then(() => {
         setUser({})
       }).catch((error) => {
-        setError(error.message)
+        setErrors(error.message)
       });
   };
 
   const handleUserRegister = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password)
-      .catch((error) => {
-        const errorMessage = error.message;
-        const errorCode = error.code;
-        setError(errorMessage, errorCode)
-      })
+
   };
 
   const handleUserLogin = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password)
-      .catch((error) => {
-        const errorMessage = error.message;
-        setError(errorMessage)
-      })
+
   };
 
- /*  const updateName = (name) => {
+  const updateName = (name) => {
     updateProfile(auth.currentUser, {
       displayName: name,
     }).then(() => {
@@ -65,7 +58,7 @@ const useFirebase = () => {
       // ...
     });
 
-  } */
+  }
 
   return {
     handleGoogleSignIn,
@@ -73,12 +66,12 @@ const useFirebase = () => {
     handleUserLogin,
     SignOut,
     user,
-    error,
-    setError,
+    errors,
+    setErrors,
     setUser,
     isLoading,
     setIsLoading,
-    // updateName,
+    updateName,
   }
 };
 

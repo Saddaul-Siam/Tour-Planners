@@ -18,6 +18,7 @@ import Shipping from './components/Home/Shipping/Shipping';
 import MyOrders from './components/Home/MyOrders/MyOrders';
 import Dashboard from './components/Home/Dashboard/Dashboard';
 import Footer from './components/Shared/Footer/Footer';
+import Register from './components/Home/Register/Register';
 
 function App() {
   return (
@@ -40,6 +41,9 @@ function App() {
             </PrivetRoute>
             <Route path="/login">
               <Login></Login>
+            </Route>
+            <Route path="/register">
+              <Register></Register>
             </Route>
             <PrivetRoute path="/bookingDetails">
               <BookingDetails />
