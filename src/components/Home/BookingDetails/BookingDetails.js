@@ -47,13 +47,16 @@ const BookingDetails = () => {
           <div className="col-md-9">
             <div className="row  text-center">
               {booking?.map((pd) => (
-                <div className="col-md-4">
-                  <div className=" border p-2 m-2">
-                    <img className="img-fluid" src={pd.img} alt="" />
-                    <h4>{pd?.email}</h4>
-                    <h5>{pd?.name}</h5>
-                    <h5>{pd?.price}</h5>
-                    <h6>{pd?.description}</h6>
+                <div className="col-md-4" key={pd._id}>
+                  <div style={{ height: "800px" }} class="card mt-5 myCard ">
+                    <div style={{ height: "300px" }} >
+                      <img style={{ height: "300px" }} src={pd.img} class="card-img-top img-fluid" alt="..." />
+                    </div>
+                    <div class="card-body overflow-auto scrollbar-hidden">
+                      <h5 class="card-title">{pd.name}</h5>
+                      <strong class="card-text">{pd.location}</strong>
+                      <p>{pd.description}</p>
+                    </div>
                     <button onClick={() => handleDelete(pd._id)} className="btn btn-danger m-2">delete</button>
                   </div>
                 </div>

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useHistory } from 'react-router';
 import useAuth from '../../../Hooks/useAuth';
+import Tour from '../Tour/Tour';
 
 const Tours = () => {
   const [tours, setTours] = useState([]);
@@ -58,7 +59,8 @@ const Tours = () => {
                 <img style={{ height: "400px" }} src={service.img} class="card-img-top img-fluid" alt="..." />
                 <div class="card-body">
                   <h5 class="card-title">{service.name}</h5>
-                  <p class="card-text">{service.location}</p>
+                  <strong class="card-text">{service.location}</strong>
+                  <Tour service={service}></Tour>
                 </div>
                 <div class="card-footer d-flex justify-content-between">
                   <h4>Price: $ {service.price}</h4>
