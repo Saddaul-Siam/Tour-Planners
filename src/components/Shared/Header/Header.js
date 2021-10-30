@@ -14,7 +14,7 @@ const Header = () => {
     fetch(`http://localhost:5000/myBooking/${email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
-  },[email]);
+  }, [email]);
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -27,6 +27,7 @@ const Header = () => {
             <Nav.Link><Link to="/tours">Tours</Link></Nav.Link>
             <Nav.Link><Link to="/addTours">Add Tours</Link></Nav.Link>
             <Nav.Link><Link to="/bookingDetails">Booking Details</Link></Nav.Link>
+            <Nav.Link><Link to="/myOrders">My Orders</Link></Nav.Link>
             <Nav.Link><Link to="/bookingDetails"><i className="bi bi-cart2"></i> {orders.length}</Link></Nav.Link>
             {user.displayName ? <Nav.Link className="nav-link disabled text-white" to="">{user.displayName}</Nav.Link>
               : <Link className="nav-link disabled" to="">{user.email}</Link>}

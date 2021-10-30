@@ -15,6 +15,7 @@ import AuthProvider from './Context/authProvider';
 import Login from './components/Home/Login/Login';
 import PrivetRoute from './components/PrivetRoute/PriverRoute';
 import Shipping from './components/Home/Shipping/Shipping';
+import MyOrders from './components/Home/MyOrders/MyOrders';
 
 function App() {
   return (
@@ -44,6 +45,9 @@ function App() {
             <Route path="/shipping">
               <Shipping></Shipping>
             </Route>
+            <PrivetRoute path="/myOrders">
+              <MyOrders></MyOrders>
+            </PrivetRoute>
             <Route path="*">
               <NotFound></NotFound>
             </Route>
