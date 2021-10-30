@@ -53,7 +53,7 @@ const BookingDetails = () => {
                     <h4>{pd?.email}</h4>
                     <h5>{pd?.name}</h5>
                     <h5>{pd?.price}</h5>
-                    <h6>{pd?.discription}</h6>
+                    <h6>{pd?.description}</h6>
                     <button onClick={() => handleDelete(pd._id)} className="btn btn-danger m-2">delete</button>
                   </div>
                 </div>

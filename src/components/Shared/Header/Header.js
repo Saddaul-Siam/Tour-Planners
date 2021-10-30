@@ -25,11 +25,16 @@ const Header = () => {
           <Nav className="ms-auto">
             <Nav.Link><Link className="text-decoration-none text-white" to="/home">Home</Link></Nav.Link>
             <Nav.Link><Link className="text-decoration-none text-white" to="/tours">Tours</Link></Nav.Link>
-            <Nav.Link><Link className="text-decoration-none text-white" to="/addTours">Add Tours</Link></Nav.Link>
+
             <Nav.Link><Link className="text-decoration-none text-white" to="/bookingDetails">Booking Details</Link></Nav.Link>
             <Nav.Link><Link className="text-decoration-none text-white" to="/myOrders">My Orders</Link></Nav.Link>
             <Nav.Link><Link className="text-decoration-none text-white" to="/bookingDetails"><i className="bi bi-cart2"></i> <span className="text-white text-decoration-none">{orders.length}</span></Link></Nav.Link>
-            {user.email &&
+            {
+              user.email &&
+              <Nav.Link><Link className="text-decoration-none text-white" to="/addTours">Add Tours</Link></Nav.Link>
+            }
+            {
+              user.email &&
               <Nav.Link><Link className="text-decoration-none text-white" to="/dashboard">Dashboard</Link></Nav.Link>
             }
             {user.displayName ? <Nav.Link className="nav-link disabled " to="">{user.displayName}</Nav.Link>

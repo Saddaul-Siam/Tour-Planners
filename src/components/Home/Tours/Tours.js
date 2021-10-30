@@ -1,9 +1,8 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Button, Card } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { useHistory } from 'react-router';
-import { Link } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 
 const Tours = () => {
@@ -49,27 +48,27 @@ const Tours = () => {
   }
   return (
     <div>
+      <h1 className="py-3">Explore the World for Yourself</h1>
       <h4>Modern & Beautiful</h4>
-      <h1>Explore the World for Yourself</h1>
       <div className="container py-5">
         <div className="row">
           {
             tours.map((service, index) => <div className="col-sm-6 col-md-6 col-lg-3" key={service._id}>
-              <Card className="border-0" style={{ width: '18rem' }}>
-                <div className="inner">
-                  <Card.Img className="" variant="top" src={service.img} />
+              <div /* style={{ height: "650px" }} */ class="card mt-5 myCard">
+                <img style={{ height: "400px" }} src={service.img} class="card-img-top img-fluid" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">{service.name}</h5>
+                  <p class="card-text">{service.location}</p>
                 </div>
-                <Card.Body>
-                  <Card.Title>{service.name}</Card.Title>
-                  <Card.Text>{service.location}</Card.Text>
-                  <Card.Text>{service.price}</Card.Text>
-                  <Button onClick={() => handleAddToCart(index)} variant="primary">Book Now</Button>
-                </Card.Body>
-              </Card>
+                <div class="card-footer d-flex justify-content-between">
+                  <h4>Price: $ {service.price}</h4>
+                  <Button onClick={() => handleAddToCart(index)} variant="info" className="rounded-pill">Book Now</Button>
+                </div>
+              </div>
             </div >)
           }
         </div>
-        <button onClick={handleClick}>Booking Details</button>
+        <button className="btn btn-primary rounded-pill" onClick={handleClick}>Booking Details</button>
       </div>
     </div >
   );

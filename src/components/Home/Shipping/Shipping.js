@@ -29,8 +29,9 @@ const Shipping = () => {
           alert('Order processed Successfully');
           handleDelete()
           reset();
-          window.location.reload();
           history.push('/myOrders')
+          window.location.reload();
+          
         }
       });
   };

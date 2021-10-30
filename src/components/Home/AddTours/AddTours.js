@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 
 const AddTours = () => {
-  const { register, handleSubmit, formState: { errors }, } = useForm();
+  const { register, handleSubmit, reset, formState: { errors }, } = useForm();
   const onSubmit = (data) => {
     fetch(`http://localhost:5000/addTours`, {
       method: "POST",
@@ -10,12 +10,17 @@ const AddTours = () => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((result) => console.log(result));
-    console.log(data);
+      .then((result) => {
+        console.log(result);
+        if (result.acknowledged === true) {
+          reset();
+          // window.location.reload()
+        }
+      });
   };
   return (
     <div>
-      <h2>Add products</h2>
+      <h2 className="py-3">Add Tours</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           className="p-2 m-2"
