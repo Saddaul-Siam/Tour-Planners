@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Orders = (props) => {
-  const orders = props.order?.order;
-
-  const { name, email, address, city, phone, _id } = props.order;
+const DashboardDetails = ({ order }) => {
+  const { name, email, address, phone, city ,_id} = order;
+  const orders = order?.order;
+  console.log(orders);
 
   const handleDelete = (id) => {
     console.log(id);
@@ -24,7 +24,7 @@ const Orders = (props) => {
     }
   };
   return (
-    <div className="container">
+    <div className="container py-5">
       <div className="row">
         <div className="col-md-4">
           <table className="table">
@@ -78,4 +78,4 @@ const Orders = (props) => {
   );
 };
 
-export default Orders;
+export default DashboardDetails;

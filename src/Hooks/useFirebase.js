@@ -54,7 +54,7 @@ const useFirebase = () => {
       })
   };
 
-  const updateName = (name) => {
+ /*  const updateName = (name) => {
     updateProfile(auth.currentUser, {
       displayName: name,
     }).then(() => {
@@ -65,7 +65,7 @@ const useFirebase = () => {
       // ...
     });
 
-  }
+  } */
 
   return {
     handleGoogleSignIn,
@@ -78,7 +78,7 @@ const useFirebase = () => {
     setUser,
     isLoading,
     setIsLoading,
-    updateName,
+    // updateName,
   }
 };
 

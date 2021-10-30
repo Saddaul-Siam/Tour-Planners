@@ -23,18 +23,21 @@ const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link><Link to="/home">Home</Link></Nav.Link>
-            <Nav.Link><Link to="/tours">Tours</Link></Nav.Link>
-            <Nav.Link><Link to="/addTours">Add Tours</Link></Nav.Link>
-            <Nav.Link><Link to="/bookingDetails">Booking Details</Link></Nav.Link>
-            <Nav.Link><Link to="/myOrders">My Orders</Link></Nav.Link>
-            <Nav.Link><Link to="/bookingDetails"><i className="bi bi-cart2"></i> {orders.length}</Link></Nav.Link>
-            {user.displayName ? <Nav.Link className="nav-link disabled text-white" to="">{user.displayName}</Nav.Link>
+            <Nav.Link><Link className="text-decoration-none text-white" to="/home">Home</Link></Nav.Link>
+            <Nav.Link><Link className="text-decoration-none text-white" to="/tours">Tours</Link></Nav.Link>
+            <Nav.Link><Link className="text-decoration-none text-white" to="/addTours">Add Tours</Link></Nav.Link>
+            <Nav.Link><Link className="text-decoration-none text-white" to="/bookingDetails">Booking Details</Link></Nav.Link>
+            <Nav.Link><Link className="text-decoration-none text-white" to="/myOrders">My Orders</Link></Nav.Link>
+            <Nav.Link><Link className="text-decoration-none text-white" to="/bookingDetails"><i className="bi bi-cart2"></i> <span className="text-white text-decoration-none">{orders.length}</span></Link></Nav.Link>
+            {user.email &&
+              <Nav.Link><Link className="text-decoration-none text-white" to="/dashboard">Dashboard</Link></Nav.Link>
+            }
+            {user.displayName ? <Nav.Link className="nav-link disabled " to="">{user.displayName}</Nav.Link>
               : <Link className="nav-link disabled" to="">{user.email}</Link>}
 
             {user.email ?
-              <button onClick={SignOut}>Log Out</button>
-              : <Nav.Link><Link to="/login">Login</Link></Nav.Link>
+              <button onClick={SignOut} className="btn btn-info rounded-pill my-0">Log Out</button>
+              : <Nav.Link><Link className="text-decoration-none text-white" to="/login">Login</Link></Nav.Link>
             }
           </Nav>
         </Navbar.Collapse>

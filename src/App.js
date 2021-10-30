@@ -16,6 +16,7 @@ import Login from './components/Home/Login/Login';
 import PrivetRoute from './components/PrivetRoute/PriverRoute';
 import Shipping from './components/Home/Shipping/Shipping';
 import MyOrders from './components/Home/MyOrders/MyOrders';
+import Dashboard from './components/Home/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -47,6 +48,9 @@ function App() {
             </Route>
             <PrivetRoute path="/myOrders">
               <MyOrders></MyOrders>
+            </PrivetRoute>
+            <PrivetRoute path="/dashboard">
+              <Dashboard></Dashboard>
             </PrivetRoute>
             <Route path="*">
               <NotFound></NotFound>

@@ -48,7 +48,7 @@ const BookingDetails = () => {
             <div className="row  text-center">
               {booking?.map((pd) => (
                 <div className="col-md-4">
-                  <div className=" border border p-2 m-2">
+                  <div className=" border p-2 m-2">
                     <img className="img-fluid" src={pd.img} alt="" />
                     <h4>{pd?.email}</h4>
                     <h5>{pd?.name}</h5>
@@ -63,7 +63,27 @@ const BookingDetails = () => {
           <div className="col-md-3">
             <h2>You added all tours</h2>
             {
-              booking?.map(dt => <div><h4>{dt.name}</h4></div>)
+              booking?.map(dt => <div><table className="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Tours</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Name:</td>
+                    <td>{dt.name}</td>
+                  </tr>
+                  <tr>
+                    <td >Location:</td>
+                    <td >{dt.location}</td>
+                  </tr>
+                  <tr>
+                    <td >Price:</td>
+                    <td >{dt.price}</td>
+                  </tr>
+                </tbody>
+              </table></div>)
             }
             <button onClick={handleProcedToCheckout} className="btn btn-primary m-2">Proceed to checkout</button>
           </div>

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router';
 import useAuth from '../../../Hooks/useAuth';
 import './Shipping.css'
 
 const Shipping = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const { user } = useAuth();
-
+  const history = useHistory();
   const [orders, setOrders] = useState([])
 
   useEffect(() => {
@@ -29,6 +30,7 @@ const Shipping = () => {
           handleDelete()
           reset();
           window.location.reload();
+          history.push('/myOrders')
         }
       });
   };
@@ -47,6 +49,7 @@ const Shipping = () => {
   return (
     <div className="d-flex justify-content-center">
       <div>
+        <h2 className="py-3">Please File up your information</h2>
         <form className="shipping-form" onSubmit={handleSubmit(onSubmit)}>
 
           <input defaultValue={user.displayName} {...register("name")} />

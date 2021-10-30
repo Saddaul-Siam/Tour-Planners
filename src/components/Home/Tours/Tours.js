@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 
 const Tours = () => {
@@ -31,6 +32,7 @@ const Tours = () => {
         .then(result => {
           if (result.insertedId) {
             alert("Successfully Added !! See Details On Booking Details Route ");
+            // window.location.reload();
           }
           else {
             alert("add korte pari nai");
@@ -41,6 +43,10 @@ const Tours = () => {
       history.push('/login')
     }
   };
+  const handleClick = () => {
+    history.push('/bookingDetails');
+    window.location.reload();
+  }
   return (
     <div>
       <h4>Modern & Beautiful</h4>
@@ -63,6 +69,7 @@ const Tours = () => {
             </div >)
           }
         </div>
+        <button onClick={handleClick}>Booking Details</button>
       </div>
     </div >
   );
