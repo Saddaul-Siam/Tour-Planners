@@ -17,6 +17,7 @@ import PrivetRoute from './components/PrivetRoute/PriverRoute';
 import Shipping from './components/Home/Shipping/Shipping';
 import MyOrders from './components/Home/MyOrders/MyOrders';
 import Dashboard from './components/Home/Dashboard/Dashboard';
+import Footer from './components/Shared/Footer/Footer';
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
               <NotFound></NotFound>
             </Route>
           </Switch>
+          <Footer></Footer>
         </Router >
       </AuthProvider>
     </div >

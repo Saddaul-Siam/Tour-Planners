@@ -88,7 +88,7 @@ const BookingDetails = () => {
                 </tbody>
               </table></div>)
             }
-            <button onClick={handleProcedToCheckout} className="btn btn-primary m-2">Proceed to checkout</button>
+            <button onClick={handleProcedToCheckout} className="btn btn-primary m-5">Proceed to checkout</button>
           </div>
         </div>
       </div>

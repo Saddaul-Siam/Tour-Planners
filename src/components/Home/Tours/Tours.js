@@ -70,7 +70,7 @@ const Tours = () => {
             </div >)
           }
         </div>
-        <button className="btn btn-primary rounded-pill" onClick={handleClick}>Booking Details</button>
+        <button className="btn btn-primary rounded-pill mt-5" onClick={handleClick}>Booking Details</button>
       </div>
     </div >
   );

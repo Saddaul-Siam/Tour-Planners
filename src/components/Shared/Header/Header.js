@@ -27,7 +27,7 @@ const Header = () => {
             <Nav.Link><Link className="text-decoration-none text-white" to="/tours">Tours</Link></Nav.Link>
 
             <Nav.Link><Link className="text-decoration-none text-white" to="/bookingDetails">Booking Details</Link></Nav.Link>
-            <Nav.Link><Link className="text-decoration-none text-white" to="/myOrders">My Orders</Link></Nav.Link>
+            {user.email && <Nav.Link><Link className="text-decoration-none text-white" to="/myOrders">My Orders</Link></Nav.Link>}
             <Nav.Link><Link className="text-decoration-none text-white" to="/bookingDetails"><i className="bi bi-cart2"></i> <span className="text-white text-decoration-none">{orders.length}</span></Link></Nav.Link>
             {
               user.email &&

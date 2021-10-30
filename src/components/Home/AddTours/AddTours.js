@@ -57,7 +57,7 @@ const AddTours = () => {
         />
         {errors.exampleRequired && <span>This field is required</span>}
         <br />
-        <input className="p-1 mt-3 btn btn-danger" type="submit" />
+        <input className="p-1 mb-5 mt-3 btn btn-danger" type="submit" />
       </form>
     </div>
   );
