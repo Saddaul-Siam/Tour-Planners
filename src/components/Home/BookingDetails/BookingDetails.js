@@ -41,7 +41,7 @@ const BookingDetails = () => {
 
   return (
     <div>
-      <h1>I am Dashboard {booking.length}</h1>
+      <h1 className="pt-3">Tours Booking {booking.length}</h1>
       <div className="container">
         <div className="row">
           <div className="col-md-9">

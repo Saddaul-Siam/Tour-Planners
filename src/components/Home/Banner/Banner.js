@@ -11,9 +11,8 @@ const Banner = () => {
             src="https://roam.qodeinteractive.com/wp-content/uploads/2017/08/h3-rev-slider-img-1.jpg"
             alt="First slide"
           />
-          <Carousel.Caption style={{paddingBottom:'40rem'}}>
-            <h3>Welcome to tour planners</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <Carousel.Caption style={{ paddingBottom: '40rem' }}>
+            <h1>Welcome To Tour Planners</h1>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -23,9 +22,8 @@ const Banner = () => {
             alt="Second slide"
           />
 
-          <Carousel.Caption style={{paddingBottom:'40rem'}}>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <Carousel.Caption style={{ paddingBottom: '40rem' }}>
+            <h1>Explore The World For Yourself</h1>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -35,9 +33,8 @@ const Banner = () => {
             alt="Third slide"
           />
 
-          <Carousel.Caption style={{paddingBottom:'40rem'}}>
-            <h3>Third slide label</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          <Carousel.Caption style={{ paddingBottom: '40rem' }}>
+            <h1>Booking Tours On 'Tour Planners' And Explore The World</h1>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
