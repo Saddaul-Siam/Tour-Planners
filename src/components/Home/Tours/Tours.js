@@ -50,7 +50,7 @@ const Tours = () => {
   return (
     <div>
       <h1 className="py-3">Explore the World for Yourself</h1>
-      <h4>Modern & Beautiful</h4>
+      <h4>Modern & Beautiful onChange</h4>
       <div className="container py-5">
         <div className="row">
           {
