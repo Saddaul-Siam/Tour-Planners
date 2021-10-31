@@ -9,7 +9,7 @@ const MyOrders = () => {
   const email = user.email;
   // console.log(email);
   useEffect(() => {
-    fetch(`http://localhost:5000/myOrders/${email}`)
+    fetch(`https://mighty-scrubland-09980.herokuapp.com/myOrders/${email}`)
       .then((res) => res.json())
       .then((data) => setMyOrders(data));
   }, [email]);

@@ -11,14 +11,14 @@ const Shipping = () => {
   const [orders, setOrders] = useState([])
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myBooking/${user.email}`)
+    fetch(`https://mighty-scrubland-09980.herokuapp.com/myBooking/${user.email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [user.email]);
 
   const onSubmit = data => {
     data.order = orders
-    fetch(`http://localhost:5000/addOrder`, {
+    fetch(`https://mighty-scrubland-09980.herokuapp.com/addOrder`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
@@ -37,7 +37,7 @@ const Shipping = () => {
   };
 
   const handleDelete = () => {
-    const url = `http://localhost:5000/deleteTours`
+    const url = `https://mighty-scrubland-09980.herokuapp.com/deleteTours`
     console.log(url);
     fetch(url, {
       method: 'DELETE',

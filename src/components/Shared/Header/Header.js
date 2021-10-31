@@ -11,7 +11,7 @@ const Header = () => {
 
   const email = `${user.email}`;
   useEffect(() => {
-    fetch(`http://localhost:5000/myBooking/${email}`)
+    fetch(`https://mighty-scrubland-09980.herokuapp.com/myBooking/${email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [email]);
@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand><Link to="/">React-Bootstrap</Link></Navbar.Brand>
+        <Navbar.Brand><Link className="text-decoration-none text-white" to="/">Tour Planners</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">

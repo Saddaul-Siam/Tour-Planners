@@ -12,30 +12,29 @@ const Footer = () => {
           <div className="row">
             <div className="col-md-4">
               <div className="left-container text-start">
-                <Link className="" to="/">
-                  <img src="https://i.ibb.co/PgxWpBR/logo-main-img.png" alt="" width="168" height="44" /></Link>
+                <Link className="text-white text-decoration-none" to="/"><h2>Tour Planners</h2></Link>
+                <br />
                 <div className="icons-container d-flex text-center ">
-                  <div className="icon">
-                    <i className="bi bi-instagram"></i>
+                  <div>
+                    <a className="icon" href="https://www.instagram.com/saddaul.siam/" tarGet="_blank"> <i className="bi bi-instagram"></i></a>
                   </div>
-                  <div className="icon">
-                    <i className="bi bi-twitter"></i>
+                  <div>
+                    <a className="icon" href="https://twitter.com/tuitardotcom?lang=en" tarGet="_blank"> <i className="bi bi-twitter"></i></a>
                   </div>
-                  <div className="icon">
-                    <i className="bi bi-youtube"></i>
+                  <div>
+                    <a className="icon" href="https://www.youtube.com/c/ProgrammingHero" tarGet="_blank"> <i className="bi bi-youtube"></i></a>
                   </div>
-                  <div className="icon">
-                    <i className="bi bi-facebook"></i>
+                  <div>
+                    <a className="icon" href="https://www.facebook.com/SaddaulSiam" tarGet="_blank">  <i className="bi bi-facebook"></i></a>
                   </div>
                 </div>
                 <p className="mt-4 ">
                   <small>
-                    ProMedica is an online Hospitals in Bangladesh created in 2021 by Saddaul Siam
+                    Tour Planners is an online tour booking website in the world. created in 2021 by Saddaul Siam
                   </small>
                 </p>
-
                 <p className="mt-5">
-                  <small>© All Copyright ProMedica 2021</small>
+                  <small>© All Copyright Tour Planners 2021</small>
                 </p>
               </div>
             </div>
@@ -53,19 +52,19 @@ const Footer = () => {
             <div className="col-md-4 ">
               <div className="d-flex justify-content-center left-container text-start">
                 <div>
-                  <h4>Working hours</h4>
+                  <h4><i className="bi bi-person-workspace"></i> Working hours</h4>
                   <p>Mon – Fri: 9 a.m. – 5 p.m.
                     Sat – Sun: Closed</p>
-                  <h4><i className="fas fa-hospital-alt"></i> Hospital: Pabna, Dahaka, Bangladesh</h4>
-                  <p><i className="fas fa-envelope"></i> Email:saddadul.siam@gmail.com</p>
-                  <p><i className="fas fa-phone-alt"></i> Phone: +8801311333277</p>
+                  <h4><i className="bi bi-building"></i> Office: Dhaka, Bangladesh</h4>
+                  <p><i className="bi bi-envelope"></i> Email:saddadul.siam@gmail.com</p>
+                  <p><i className="bi bi-phone"></i> Phone: +8801311333277</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 
