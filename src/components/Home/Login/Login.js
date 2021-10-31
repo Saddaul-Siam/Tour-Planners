@@ -68,7 +68,7 @@ const Login = () => {
             <p>{errors.message}</p>
           </div>
           <div className="login-register-btn mt-4 d-flex justify-content-center">
-            <button onClick={handleLogin} className="btn btn-primary rounded-pill btn-regular">Login</button>
+            <button onClick={handleLogin} className="btn btn-info rounded-pill btn-regular">Login</button>
           </div>
           <div className="d-flex justify-content-center mt-2">
             <Link to="/register" className="">New user please register</Link>

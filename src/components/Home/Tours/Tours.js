@@ -5,6 +5,7 @@ import { Button } from 'react-bootstrap';
 import { useHistory } from 'react-router';
 import useAuth from '../../../Hooks/useAuth';
 import Tour from '../Tour/Tour';
+import './Tours.css'
 
 const Tours = () => {
   const [tours, setTours] = useState([]);
@@ -55,8 +56,10 @@ const Tours = () => {
         <div className="row">
           {
             tours.map((service, index) => <div className="col-sm-6 col-md-6 col-lg-3" key={service._id}>
-              <div /* style={{ height: "650px" }} */ className="card mt-5 myCard">
-                <img style={{ height: "400px" }} src={service.img} className="card-img-top img-fluid" alt="..." />
+              <div className="card mt-5 myCard">
+                <div className="inner">
+                  <img style={{ height: "400px" }} src={service.img} className="card-img-top img-fluid" alt="..." />
+                </div>
                 <div className="card-body">
                   <h5 className="card-title">{service.name}</h5>
                   <strong className="card-text">{service.location}</strong>
@@ -70,7 +73,7 @@ const Tours = () => {
             </div >)
           }
         </div>
-        <button className="btn btn-primary rounded-pill mt-5" onClick={handleClick}>Booking Details</button>
+        <button className="btn btn-info rounded-pill mt-5" onClick={handleClick}>Booking Details</button>
       </div>
     </div >
   );

@@ -64,7 +64,9 @@ const DashboardDetails = ({ order }) => {
           <div className="d-flex flex-column">
             {
               orders.map(od => <div className="d-flex pb-5 justify-content-between align-items-center">
-                <img width="150px" height="200px" src={od.img} alt="" />
+                <div className="inner">
+                  <img width="150px" height="200px" src={od.img} alt="" />
+                </div>
                 <h4>{od.name} {od.location}</h4>
                 <p>{od.status}</p>
 

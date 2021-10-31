@@ -82,7 +82,7 @@ const Register = () => {
             <p>{errors.code}</p>
           </div>
           <div className="login-register-btn mt-4 d-flex justify-content-center">
-            <button onClick={handleRegister} className="btn btn-primary rounded-pill btn-regular">Register</button>
+            <button onClick={handleRegister} className="btn btn-info rounded-pill btn-regular">Register</button>
           </div>
           <div className="d-flex justify-content-center mt-2">
             <Link to="/login" className="">Already Registered</Link>

@@ -9,7 +9,7 @@
 //   return (
 //     <div>
       
-//       {/* <button onClick={() => handleProcedToCheckout(dt._id)} className="btn btn-primary m-2">Proceed to checkout</button> */}
+//       {/* <button onClick={() => handleProcedToCheckout(dt._id)} className="btn btn-info m-2">Proceed to checkout</button> */}
 //     </div>
 //   );
 // };

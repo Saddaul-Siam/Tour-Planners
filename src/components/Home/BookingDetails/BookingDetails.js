@@ -49,7 +49,7 @@ const BookingDetails = () => {
               {booking?.map((pd) => (
                 <div className="col-md-4" key={pd._id}>
                   <div style={{ height: "800px" }} className="card mt-5 myCard ">
-                    <div style={{ height: "300px" }} >
+                    <div style={{ height: "300px" }}className="inner">
                       <img style={{ height: "300px" }} src={pd.img} className="card-img-top img-fluid" alt="..." />
                     </div>
                     <div className="card-body overflow-auto scrollbar-hidden">
@@ -88,7 +88,7 @@ const BookingDetails = () => {
                 </tbody>
               </table></div>)
             }
-            <button onClick={handleProcedToCheckout} className="btn btn-primary m-5">Proceed to checkout</button>
+            <button onClick={handleProcedToCheckout} className="btn btn-info rounded-pill m-5">Proceed to checkout</button>
           </div>
         </div>
       </div>
