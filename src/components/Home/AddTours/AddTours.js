@@ -14,7 +14,7 @@ const AddTours = () => {
         console.log(result);
         if (result.acknowledged === true) {
           reset();
-          // window.location.reload()
+          alert("Tours added successfully")
         }
       });
   };
