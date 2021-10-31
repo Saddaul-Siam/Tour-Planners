@@ -11,7 +11,7 @@ const Header = () => {
 
   const email = `${user.email}`;
   useEffect(() => {
-    fetch(`https://mighty-scrubland-09980.herokuapp.com/myBooking/${email}`)
+    fetch(`https://tour-planners.herokuapp.com/myBooking/${email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [email]);

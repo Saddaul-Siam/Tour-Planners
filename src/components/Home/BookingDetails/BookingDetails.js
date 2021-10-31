@@ -12,7 +12,7 @@ const BookingDetails = () => {
   const email = `${user.email}`;
 
   useEffect(() => {
-    fetch(`https://mighty-scrubland-09980.herokuapp.com/myBooking/${email}`)
+    fetch(`https://tour-planners.herokuapp.com/myBooking/${email}`)
       .then((res) => res.json())
       .then((data) => setBooking(data));
   }, [email, isDeleted]);
@@ -21,7 +21,7 @@ const BookingDetails = () => {
     console.log(id);
     const proceed = window.confirm('Are you sure you want to delete?');
     if (proceed) {
-      fetch(`https://mighty-scrubland-09980.herokuapp.com/deleteTours/${id}`, {
+      fetch(`https://tour-planners.herokuapp.com/deleteTours/${id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
       })

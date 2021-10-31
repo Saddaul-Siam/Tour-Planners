@@ -9,7 +9,7 @@ const DashboardDetails = ({ order }) => {
     console.log(id);
     const proceed = window.confirm('Are you sure you want to delete your orders?');
     if (proceed) {
-      fetch(`https://mighty-scrubland-09980.herokuapp.com/deleteOrders/${id}`, {
+      fetch(`https://tour-planners.herokuapp.com/deleteOrders/${id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
       })

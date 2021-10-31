@@ -4,7 +4,7 @@ import DashboardDetails from '../DashboardDetails/DashboardDetails';
 const Dashboard = () => {
   const [orders, setOrders] = useState([])
   useEffect(() => {
-    fetch("https://mighty-scrubland-09980.herokuapp.com/orders")
+    fetch("https://tour-planners.herokuapp.com/orders")
       .then(res => res.json())
       .then(data => setOrders(data))
   }, []);

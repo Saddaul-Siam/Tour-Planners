@@ -11,14 +11,14 @@ const Shipping = () => {
   const [orders, setOrders] = useState([])
 
   useEffect(() => {
-    fetch(`https://mighty-scrubland-09980.herokuapp.com/myBooking/${user.email}`)
+    fetch(`https://tour-planners.herokuapp.com/myBooking/${user.email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [user.email]);
 
   const onSubmit = data => {
     data.order = orders
-    fetch(`https://mighty-scrubland-09980.herokuapp.com/addOrder`, {
+    fetch(`https://tour-planners.herokuapp.com/addOrder`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
@@ -31,13 +31,13 @@ const Shipping = () => {
           reset();
           history.push('/myOrders')
           window.location.reload();
-          
+
         }
       });
   };
 
   const handleDelete = () => {
-    const url = `https://mighty-scrubland-09980.herokuapp.com/deleteTours`
+    const url = `https://tour-planners.herokuapp.com/deleteTours`
     console.log(url);
     fetch(url, {
       method: 'DELETE',

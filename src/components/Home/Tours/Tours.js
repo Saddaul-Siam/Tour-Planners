@@ -12,7 +12,7 @@ const Tours = () => {
   const history = useHistory()
 
   useEffect(() => {
-    fetch("https://mighty-scrubland-09980.herokuapp.com/tours")
+    fetch("https://tour-planners.herokuapp.com/tours")
       .then(res => res.json())
       .then(data => setTours(data))
   }, []);
@@ -23,7 +23,7 @@ const Tours = () => {
       data.email = `${user.email}`;
       data.status = "pending";
       console.log(data);
-      fetch(`https://mighty-scrubland-09980.herokuapp.com/addBooking`, {
+      fetch(`https://tour-planners.herokuapp.com/addBooking`, {
         method: "POST",
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify(data),
