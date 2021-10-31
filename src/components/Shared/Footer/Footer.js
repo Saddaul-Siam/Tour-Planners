@@ -16,16 +16,16 @@ const Footer = () => {
                 <br />
                 <div className="icons-container d-flex text-center ">
                   <div>
-                    <a className="icon" href="https://www.instagram.com/saddaul.siam/" tarGet="_blank"> <i className="bi bi-instagram"></i></a>
+                    <a className="icon" href="https://www.instagram.com/saddaul.siam/" > <i className="bi bi-instagram"></i></a>
                   </div>
                   <div>
-                    <a className="icon" href="https://twitter.com/tuitardotcom?lang=en" tarGet="_blank"> <i className="bi bi-twitter"></i></a>
+                    <a className="icon" href="https://twitter.com/tuitardotcom?lang=en" > <i className="bi bi-twitter"></i></a>
                   </div>
                   <div>
-                    <a className="icon" href="https://www.youtube.com/c/ProgrammingHero" tarGet="_blank"> <i className="bi bi-youtube"></i></a>
+                    <a className="icon" href="https://www.youtube.com/c/ProgrammingHero" > <i className="bi bi-youtube"></i></a>
                   </div>
                   <div>
-                    <a className="icon" href="https://www.facebook.com/SaddaulSiam" tarGet="_blank">  <i className="bi bi-facebook"></i></a>
+                    <a className="icon" href="https://www.facebook.com/SaddaulSiam" >  <i className="bi bi-facebook"></i></a>
                   </div>
                 </div>
                 <p className="mt-4 ">

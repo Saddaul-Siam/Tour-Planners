@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const DashboardDetails = ({ order }) => {
-  const { name, email, address, phone, city ,_id} = order;
+  const { name, email, address, phone, city, _id } = order;
   const orders = order?.order;
   console.log(orders);
 
@@ -63,7 +64,7 @@ const DashboardDetails = ({ order }) => {
           <div className="d-flex flex-column">
             {
               orders.map(od => <div className="d-flex pb-5 justify-content-between align-items-center">
-                <img width="150px" height="200px"  src={od.img} alt="" />
+                <img width="150px" height="200px" src={od.img} alt="" />
                 <h4>{od.name} {od.location}</h4>
                 <p>{od.status}</p>
 
@@ -73,8 +74,9 @@ const DashboardDetails = ({ order }) => {
         </div>
       </div>
       <button onClick={() => handleDelete(_id)} className="btn btn-danger">Delete Booking <i className="bi bi-scissors"></i></button>
+      <Link to={`/updateStatus/${_id}`}><button className="btn btn-success ms-3">Approved</button></Link>
       <hr />
-    </div>
+    </div >
   );
 };
 

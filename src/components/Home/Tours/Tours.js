@@ -55,14 +55,14 @@ const Tours = () => {
         <div className="row">
           {
             tours.map((service, index) => <div className="col-sm-6 col-md-6 col-lg-3" key={service._id}>
-              <div /* style={{ height: "650px" }} */ class="card mt-5 myCard">
-                <img style={{ height: "400px" }} src={service.img} class="card-img-top img-fluid" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">{service.name}</h5>
-                  <strong class="card-text">{service.location}</strong>
+              <div /* style={{ height: "650px" }} */ className="card mt-5 myCard">
+                <img style={{ height: "400px" }} src={service.img} className="card-img-top img-fluid" alt="..." />
+                <div className="card-body">
+                  <h5 className="card-title">{service.name}</h5>
+                  <strong className="card-text">{service.location}</strong>
                   <Tour service={service}></Tour>
                 </div>
-                <div class="card-footer d-flex justify-content-between">
+                <div className="card-footer d-flex justify-content-between">
                   <h4>Price: $ {service.price}</h4>
                   <Button onClick={() => handleAddToCart(index)} variant="info" className="rounded-pill">Book Now</Button>
                 </div>

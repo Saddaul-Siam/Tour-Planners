@@ -19,6 +19,7 @@ import MyOrders from './components/Home/MyOrders/MyOrders';
 import Dashboard from './components/Home/Dashboard/Dashboard';
 import Footer from './components/Shared/Footer/Footer';
 import Register from './components/Home/Register/Register';
+import UpdateStatus from './components/Home/UpdateStatus/UpdateStatus';
 
 function App() {
   return (
@@ -57,6 +58,9 @@ function App() {
             <PrivetRoute path="/dashboard">
               <Dashboard></Dashboard>
             </PrivetRoute>
+            <Route path="/updateStatus/:statusId">
+              <UpdateStatus></UpdateStatus>
+            </Route>
             <Route path="*">
               <NotFound></NotFound>
             </Route>

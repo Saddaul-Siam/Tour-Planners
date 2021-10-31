@@ -48,16 +48,16 @@ const BookingDetails = () => {
             <div className="row  text-center">
               {booking?.map((pd) => (
                 <div className="col-md-4" key={pd._id}>
-                  <div style={{ height: "800px" }} class="card mt-5 myCard ">
+                  <div style={{ height: "800px" }} className="card mt-5 myCard ">
                     <div style={{ height: "300px" }} >
-                      <img style={{ height: "300px" }} src={pd.img} class="card-img-top img-fluid" alt="..." />
+                      <img style={{ height: "300px" }} src={pd.img} className="card-img-top img-fluid" alt="..." />
                     </div>
-                    <div class="card-body overflow-auto scrollbar-hidden">
-                      <h5 class="card-title">{pd.name}</h5>
-                      <strong class="card-text">{pd.location}</strong>
+                    <div className="card-body overflow-auto scrollbar-hidden">
+                      <h5 className="card-title">{pd.name}</h5>
+                      <strong className="card-text">{pd.location}</strong>
                       <p>{pd.description}</p>
                     </div>
-                    <button onClick={() => handleDelete(pd._id)} className="btn btn-danger m-2">delete</button>
+                    <button onClick={() => handleDelete(pd._id)} className="btn btn-danger m-2">Remove Booking</button>
                   </div>
                 </div>
               ))}
@@ -82,8 +82,8 @@ const BookingDetails = () => {
                     <td >{dt.location}</td>
                   </tr>
                   <tr>
-                    <td >Price:</td>
-                    <td >{dt.price}</td>
+                    <td >Price</td>
+                    <td >$ {dt.price}</td>
                   </tr>
                 </tbody>
               </table></div>)
