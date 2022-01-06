@@ -16,6 +16,7 @@ import Dashboard from "./components/Home/Dashboard/Dashboard";
 import Footer from "./components/Shared/Footer/Footer";
 import Register from "./components/Home/Register/Register";
 import UpdateStatus from "./components/Home/UpdateStatus/UpdateStatus";
+import ManageAllOrders from "./components/Home/ManageAllOrders/ManageAllOrders";
 
 function App() {
   return (
@@ -54,12 +55,54 @@ function App() {
                 </PrivetRoute>
               }
             />
-            <Route path="/dashboard" element={<PrivetRoute><Dashboard /></PrivetRoute>}>
-              <Route path="/dashboard/bookingDetails" element={<PrivetRoute><BookingDetails /></PrivetRoute>}/>
-              <Route path="/dashboard/myOrders" element={<PrivetRoute><MyOrders /></PrivetRoute>}/>
-              <Route path="/dashboard/bookingDetails" element={<PrivetRoute><BookingDetails /></PrivetRoute>}/>
-              <Route path="/dashboard/addTours" element={<PrivetRoute><AddTours /></PrivetRoute>}/>
-
+            <Route
+              path="/dashboard"
+              element={
+                <PrivetRoute>
+                  <Dashboard />
+                </PrivetRoute>
+              }
+            >
+              <Route
+                path="/dashboard/bookingDetails"
+                element={
+                  <PrivetRoute>
+                    <BookingDetails />
+                  </PrivetRoute>
+                }
+              />
+              <Route
+                path="/dashboard/myOrders"
+                element={
+                  <PrivetRoute>
+                    <MyOrders />
+                  </PrivetRoute>
+                }
+              />
+              <Route
+                path="/dashboard/bookingDetails"
+                element={
+                  <PrivetRoute>
+                    <BookingDetails />
+                  </PrivetRoute>
+                }
+              />
+              <Route
+                path="/dashboard/addTours"
+                element={
+                  <PrivetRoute>
+                    <AddTours />
+                  </PrivetRoute>
+                }
+              />
+              <Route
+                path="/dashboard/manageAllOrders"
+                element={
+                  <PrivetRoute>
+                    <ManageAllOrders />
+                  </PrivetRoute>
+                }
+              />
             </Route>
             <Route path="/updateStatus/:statusId" element={<UpdateStatus />} />
             <Route path="*" element={<NotFound />} />

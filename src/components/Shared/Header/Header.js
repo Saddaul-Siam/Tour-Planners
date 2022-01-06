@@ -46,7 +46,7 @@ const Header = () => {
               </NavLink>
             </Nav.Link>
 
-            <Nav.Link>
+            {/* <Nav.Link>
               <NavLink
                 activeStyle={{ fontWeight: "bold" }}
                 className="text-decoration-none text-white bg-dark"
@@ -54,9 +54,9 @@ const Header = () => {
               >
                 Booking Details
               </NavLink>
-            </Nav.Link>
+            </Nav.Link> */}
 
-            {user.email && (
+            {/* {user.email && (
               <Nav.Link>
                 <NavLink
                   activeStyle={{ fontWeight: "bold" }}
@@ -66,12 +66,12 @@ const Header = () => {
                   My Orders
                 </NavLink>
               </Nav.Link>
-            )}
+            )} */}
             <Nav.Link>
               <NavLink
                 activeStyle={{ fontWeight: "bold" }}
                 className="text-decoration-none text-white bg-dark"
-                to="/bookingDetails"
+                to="/dashboard/bookingDetails"
               >
                 <i className="bi bi-cart2"></i>{" "}
                 <span className="text-white text-decoration-none">
@@ -79,7 +79,7 @@ const Header = () => {
                 </span>
               </NavLink>
             </Nav.Link>
-            {user.email && (
+            {/* {user.email && (
               <Nav.Link>
                 <NavLink
                   activeStyle={{ fontWeight: "bold" }}
@@ -89,7 +89,7 @@ const Header = () => {
                   Add Tours
                 </NavLink>
               </Nav.Link>
-            )}
+            )} */}
             {user.email && (
               <Nav.Link>
                 <NavLink
