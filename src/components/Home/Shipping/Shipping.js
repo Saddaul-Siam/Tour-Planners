@@ -23,6 +23,7 @@ const Shipping = () => {
 
   const onSubmit = (data) => {
     data.order = orders;
+    data.status = "pending";
     fetch(`https://tour-planners.herokuapp.com/addOrder`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -37,15 +38,12 @@ const Shipping = () => {
       })
       .finally(() => {
         reset();
-        navigate("/myOrders");
-        // window.location.reload();
+        navigate("/dashboard/myOrders");
       });
   };
 
   const handleDelete = () => {
-    const url = `https://tour-planners.herokuapp.com/deleteTours`;
-    console.log(url);
-    fetch(url, {
+    fetch(`https://tour-planners.herokuapp.com/deleteTours`, {
       method: "DELETE",
     })
       .then((res) => res.json())
