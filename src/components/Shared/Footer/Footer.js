@@ -7,7 +7,7 @@ const Footer = () => {
   const { user } = useAuth()
   return (
     <div>
-      <div className="footer-container" style={{ paddingBottom: '30rem' }}>
+      <div className="footer-container">
         <div className="container">
           <div className="row">
             <div className="col-md-4">
