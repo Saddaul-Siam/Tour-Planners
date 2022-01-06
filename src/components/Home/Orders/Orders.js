@@ -1,79 +1,63 @@
-import React from 'react';
+import React from "react";
+import { Button, Table } from "react-bootstrap";
+// import { useNavigate } from "react-router-dom";
 
 const Orders = (props) => {
-  const orders = props.order?.order;
+  let count = 0;
+  const orders = props.order;
+  console.log(orders);
+  // const navigate = useNavigate();
 
-  const { name, email, address, city, phone, _id } = props.order;
-
-  const handleDelete = (id) => {
-    console.log(id);
-    const proceed = window.confirm('Are you sure you want to delete your orders?');
-    if (proceed) {
-      fetch(`https://tour-planners.herokuapp.com/deleteOrders/${id}`, {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' }
-      })
-        .then(res => res.json())
-        .then(result => {
-          if (result.deletedCount > 0) {
-            alert('Deleted successfully')
-            window.location.reload()
-          }
-          console.log(result);
-        })
-    }
-  };
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-4">
-          <table className="table">
-            <thead>
-              <tr>
-                <th scope="col">Orders Details</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Name:</td>
-                <td>{name}</td>
-              </tr>
-              <tr>
-                <td >Email:</td>
-                <td >{email}</td>
-              </tr>
-              <tr>
-                <td >Address:</td>
-                <td >{address}</td>
-              </tr>
-              <tr>
-                <td >City:</td>
-                <td >{city}</td>
-              </tr>
-              <tr>
-                <td >Phone:</td>
-                <td >{phone}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div className="col-md-2">
-        </div>
-        <div className="col-md-6">
-          <div className="d-flex flex-column">
-            {
-              orders.map(od => <div className="d-flex pb-5 justify-content-between align-items-center">
-                <div className="inner"><img width="150px" height="200px" src={od.img} alt="" /></div>
-                <h4>{od.name} {od.location}</h4>
-                <p>{od.status}</p>
-
-              </div>)
-            }
-          </div>
-        </div>
+    <div>
+      <div className="d-flex justify-content-center pb-5">
+        <h2>My orders</h2>
       </div>
-      <button onClick={() => handleDelete(_id)} className="btn btn-danger">Delete Booking <i className="bi bi-scissors"></i></button>
-      <hr />
+      <Table responsive striped bordered hover variant="dark">
+        {/* table header */}
+        <thead>
+          <tr className="text-center">
+            <th className="fs-3 text-white">Sl</th>
+            <th className="fs-3 text-white">Name</th>
+            <th className="fs-3 text-white">Product Name</th>
+            <th className="fs-3 text-white">Product Image</th>
+            <th className="fs-3 text-white">Status</th>
+            <th className="fs-3 text-white">Payment</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* looping data */}
+
+          {props?.order?.order?.map((od) => (
+            <tr key={od._id} className="text-center">
+              <td className="fs-4 text-white ">{++count}</td>
+              <td className="fs-4 text-white ">{orders.name}</td>
+
+              <td className="fs-4 text-white ">{od.name}</td>
+              <td className="fs-4 text-white ">
+                <img
+                  style={{ width: "60px", height: "60px" }}
+                  src={od.img}
+                  alt=""
+                />
+              </td>
+              <td className="fs-4 text-white ">{orders?.status}</td>
+              <td className="fs-4 text-white ">
+                {orders?.payment ? (
+                  "Paid"
+                ) : (
+                  <Button
+                    variant="primary"
+                    // onClick={() => navigate(`/contactInformation/${order._id}`)}
+                  >
+                    Pay
+                  </Button>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
     </div>
   );
 };

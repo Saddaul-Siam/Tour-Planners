@@ -83,11 +83,11 @@ const Dashboard = () => {
             </NavLink>
             <NavLink
               className={({ isActive }) => (isActive ? "active" : "")}
-              to={`/dashboard/stockUpdate`}
+              to={`/dashboard/manageProducts`}
             >
               <ListGroup.Item className="border-end-0 border-top-0 border-start-0 text-info">
-                <i className="fas fa-cart-arrow-down text-info"></i> Product
-                Update
+                <i className="fas fa-cart-arrow-down text-info"></i>Manage
+                Product
               </ListGroup.Item>
             </NavLink>
           </ListGroup>
@@ -105,7 +105,7 @@ const Dashboard = () => {
         </div>
         <Col className="main-content">
           <div className="content">
-            <Outlet/>
+            <Outlet />
           </div>
           {/* nested routes */}
         </Col>

@@ -1,37 +1,9 @@
-/* import React, { useEffect, useState } from "react";
-import ManageAllOrder from "./ManageAllOrder";
-
-const ManageAllOrders = () => {
-  const [orders, setOrders] = useState([]);
-  useEffect(() => {
-    fetch("https://tour-planners.herokuapp.com/orders")
-      .then((res) => res.json())
-      .then((data) => setOrders(data));
-  }, []);
-  console.log(orders);
-  return (
-    <div className="">
-      <h2 className="py-3">This is a Dashboard only use Admin</h2>
-      <h4 className="py-3">All Orders Here :{orders.length}</h4>
-      {orders.map((order) => (
-        <ManageAllOrder order={order} key={order._id}></ManageAllOrder>
-      ))}
-    </div>
-  );
-};
-
-export default ManageAllOrders;
- */
 import React, { useEffect, useState } from "react";
 import { Button, Container, Spinner, Table } from "react-bootstrap";
-import useAuth from "../../../Hooks/useAuth";
-// import { useSelector } from "react-redux";
 
 const ManageAllOrders = () => {
   let count = 0;
   const Swal = require("sweetalert2");
-  const { user } = useAuth();
-  // const user = useSelector((state) => state.statesCounter.user);
   const [orders, setOrders] = useState([]);
   useEffect(() => {
     fetch("https://tour-planners.herokuapp.com/orders")
@@ -78,7 +50,6 @@ const ManageAllOrders = () => {
       id: id,
       status: "approved",
     };
-    console.log(status);
     fetch("https://tour-planners.herokuapp.com/orderStatusUpdate", {
       method: "PUT",
       headers: { "content-type": "application/json" },

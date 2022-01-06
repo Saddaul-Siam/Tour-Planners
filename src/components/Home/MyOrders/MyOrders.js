@@ -5,7 +5,6 @@ import Orders from "../Orders/Orders";
 const MyOrders = () => {
   const { user } = useAuth();
   const [myOrder, setMyOrders] = useState([]);
-  console.log(myOrder);
   const email = user.email;
   // console.log(email);
   useEffect(() => {
