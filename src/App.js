@@ -17,6 +17,9 @@ import Footer from "./components/Shared/Footer/Footer";
 import Register from "./components/Home/Register/Register";
 import UpdateStatus from "./components/Home/UpdateStatus/UpdateStatus";
 import ManageAllOrders from "./components/Home/ManageAllOrders/ManageAllOrders";
+import AddAdmin from "./components/Home/Dashboard/AddAdmin/AddAdmin";
+import ManageAllProducts from "./components/Home/Dashboard/manageAllProducts/ManageAllProducts";
+import AddReview from "./components/Home/Dashboard/AddReview/AddReview";
 
 function App() {
   return (
@@ -92,6 +95,30 @@ function App() {
                 element={
                   <PrivetRoute>
                     <AddTours />
+                  </PrivetRoute>
+                }
+              />
+              <Route
+                path="/dashboard/addAdmin"
+                element={
+                  <PrivetRoute>
+                    <AddAdmin />
+                  </PrivetRoute>
+                }
+              />
+              <Route
+                path="/dashboard/manageAllProducts"
+                element={
+                  <PrivetRoute>
+                    <ManageAllProducts />
+                  </PrivetRoute>
+                }
+              />
+              <Route
+                path="/dashboard/addReview"
+                element={
+                  <PrivetRoute>
+                    <AddReview />
                   </PrivetRoute>
                 }
               />

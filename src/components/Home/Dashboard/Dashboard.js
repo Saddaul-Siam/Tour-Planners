@@ -50,7 +50,7 @@ const Dashboard = () => {
             </NavLink>
             <NavLink
               className={({ isActive }) => (isActive ? "active" : "")}
-              to={`/dashboard/review`}
+              to={`/dashboard/addReview`}
             >
               <ListGroup.Item className=" border-end-0 border-top-0 border-start-0 text-info">
                 <i class="fas fa-comment-alt"></i> Add review
@@ -59,7 +59,7 @@ const Dashboard = () => {
 
             <NavLink
               className={({ isActive }) => (isActive ? "active" : "")}
-              to={`/dashboard/admin`}
+              to={`/dashboard/addAdmin`}
             >
               <ListGroup.Item className=" border-end-0 border-top-0 border-start-0 text-info">
                 <i className="fas fa-user-lock text-info"></i> Add Admin
@@ -83,10 +83,10 @@ const Dashboard = () => {
             </NavLink>
             <NavLink
               className={({ isActive }) => (isActive ? "active" : "")}
-              to={`/dashboard/manageProducts`}
+              to={`/dashboard/manageAllProducts`}
             >
               <ListGroup.Item className="border-end-0 border-top-0 border-start-0 text-info">
-                <i className="fas fa-cart-arrow-down text-info"></i>Manage
+                <i className="fas fa-cart-arrow-down text-info"></i>Manage All
                 Product
               </ListGroup.Item>
             </NavLink>
