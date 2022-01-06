@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Container, ListGroup, Row } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import "./dash.css";
 const Dashboard = () => {
@@ -34,7 +34,7 @@ const Dashboard = () => {
             </NavLink>
             <NavLink
               className={({ isActive }) => (isActive ? "active" : "")}
-              to={`/dashboard/cart`}
+              to={`/dashboard/bookingDetails`}
             >
               <ListGroup.Item className=" border-end-0 border-top-0 border-start-0 text-info">
                 <i className="fas fa-cart-plus text-info"></i> Cart
@@ -42,7 +42,7 @@ const Dashboard = () => {
             </NavLink>
             <NavLink
               className={({ isActive }) => (isActive ? "active" : "")}
-              to={`/dashboard/myOrder`}
+              to={`/dashboard/myOrders`}
             >
               <ListGroup.Item className=" border-end-0 border-top-0 border-start-0 text-info">
                 <i className="fas fa-folder-plus text-info"></i> My Orders
@@ -67,10 +67,10 @@ const Dashboard = () => {
             </NavLink>
             <NavLink
               className={({ isActive }) => (isActive ? "active" : "")}
-              to={`/dashboard/allUser`}
+              to={`/dashboard/addTours`}
             >
               <ListGroup.Item className=" border-end-0 border-top-0 border-start-0 text-info">
-                <i className="fas fa-user-check text-info"></i> All User{" "}
+                <i className="fas fa-user-check text-info"></i> Add Tours{" "}
               </ListGroup.Item>
             </NavLink>
             <NavLink
@@ -104,7 +104,9 @@ const Dashboard = () => {
           </span>
         </div>
         <Col className="main-content">
-          <div className="content">{/* <Outlet></Outlet> */}</div>
+          <div className="content">
+            <Outlet/>
+          </div>
           {/* nested routes */}
         </Col>
       </Row>

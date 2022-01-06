@@ -54,14 +54,13 @@ function App() {
                 </PrivetRoute>
               }
             />
-            <Route
-              path="/dashboard"
-              element={
-                <PrivetRoute>
-                  <Dashboard />
-                </PrivetRoute>
-              }
-            />
+            <Route path="/dashboard" element={<PrivetRoute><Dashboard /></PrivetRoute>}>
+              <Route path="/dashboard/bookingDetails" element={<PrivetRoute><BookingDetails /></PrivetRoute>}/>
+              <Route path="/dashboard/myOrders" element={<PrivetRoute><MyOrders /></PrivetRoute>}/>
+              <Route path="/dashboard/bookingDetails" element={<PrivetRoute><BookingDetails /></PrivetRoute>}/>
+              <Route path="/dashboard/addTours" element={<PrivetRoute><AddTours /></PrivetRoute>}/>
+
+            </Route>
             <Route path="/updateStatus/:statusId" element={<UpdateStatus />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
