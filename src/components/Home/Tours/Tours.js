@@ -2,14 +2,14 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 import useAuth from "../../../Hooks/useAuth";
 import "./Tours.css";
 
 const Tours = () => {
   const [tours, setTours] = useState([]);
   const { user } = useAuth();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://tour-planners.herokuapp.com/tours")
@@ -40,11 +40,11 @@ const Tours = () => {
           }
         });
     } else {
-      history.push("/login");
+      navigate("/login");
     }
   };
   const handleClick = () => {
-    history.push("/bookingDetails");
+    navigate("/bookingDetails");
     window.location.reload();
   };
   return (

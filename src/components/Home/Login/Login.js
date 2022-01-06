@@ -1,15 +1,22 @@
 import React, { useState } from "react";
-import { Link, useLocation, useHistory } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
-import './Login.css'
+import "./Login.css";
 
 const Login = () => {
-  const { handleGoogleSignIn, setUser, errors, setErrors, handleUserLogin, setIsLoading } = useAuth();
+  const {
+    handleGoogleSignIn,
+    setUser,
+    errors,
+    setErrors,
+    handleUserLogin,
+    setIsLoading,
+  } = useAuth();
 
   const location = useLocation();
-  const history = useHistory();
+  const navigate = useNavigate();
 
-  const redirect_url = location.state?.from || '/';
+  const redirect_url = location.state?.from || "/";
   // console.log("come form", location.state?.from);
 
   const [email, setEmail] = useState("");
@@ -27,31 +34,30 @@ const Login = () => {
   const handleLogin = () => {
     handleUserLogin(email, password)
       .then((result) => {
-        setIsLoading(true)
-        setUser(result.user)
-        history.push(redirect_url)
+        setIsLoading(true);
+        setUser(result.user);
+        navigate(redirect_url);
       })
       .catch((error) => {
         const errorMessage = error.message;
-        setErrors(errorMessage)
+        setErrors(errorMessage);
       })
       .finally(() => {
-        setIsLoading(false)
-      })
+        setIsLoading(false);
+      });
   };
-
 
   const signInWithGoogle = () => {
     handleGoogleSignIn()
       .then((result) => {
-        setIsLoading(true)
-        setUser(result.user)
-        history.push(redirect_url)
+        setIsLoading(true);
+        setUser(result.user);
+        navigate(redirect_url);
       })
       .finally(() => {
-        setIsLoading(false)
-      })
-  }
+        setIsLoading(false);
+      });
+  };
 
   return (
     <div className="div d-flex justify-content-center align-items-center shadow border-3 background-login padding py-5">
@@ -60,25 +66,47 @@ const Login = () => {
           <h2>Login Form</h2>
         </div>
         <div className="form-input">
-          <input onChange={handleEmail} className="mt-2 p-2 border-0 input-field" type="email" placeholder="Email" />
+          <input
+            onChange={handleEmail}
+            className="mt-2 p-2 border-0 input-field"
+            type="email"
+            placeholder="Email"
+          />
           <br />
-          <input onChange={handlePassword} className="mt-2 p-2 border-0 input-field" type="password" placeholder="Password" />
+          <input
+            onChange={handlePassword}
+            className="mt-2 p-2 border-0 input-field"
+            type="password"
+            placeholder="Password"
+          />
           <br />
           <div className="d-flex justify-content-center">
             <p>{errors.message}</p>
           </div>
           <div className="login-register-btn mt-4 d-flex justify-content-center">
-            <button onClick={handleLogin} className="btn btn-info rounded-pill btn-regular">Login</button>
+            <button
+              onClick={handleLogin}
+              className="btn btn-info rounded-pill btn-regular"
+            >
+              Login
+            </button>
           </div>
           <div className="d-flex justify-content-center mt-2">
-            <Link to="/register" className="">New user please register</Link>
+            <Link to="/register" className="">
+              New user please register
+            </Link>
           </div>
         </div>
         <div className="login-btn mt-4 d-flex justify-content-center">
-          <button onClick={signInWithGoogle} className="btn btn-warning btn-regular rounded-pill"><i className="fab fa-google"></i> Google sign in </button>
+          <button
+            onClick={signInWithGoogle}
+            className="btn btn-warning btn-regular rounded-pill"
+          >
+            <i className="fab fa-google"></i> Google sign in{" "}
+          </button>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 

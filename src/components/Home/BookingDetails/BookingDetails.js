@@ -1,13 +1,13 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { useHistory } from 'react-router';
-import useAuth from '../../../Hooks/useAuth';
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import useAuth from "../../../Hooks/useAuth";
 
 const BookingDetails = () => {
-  const { user } = useAuth()
+  const { user } = useAuth();
   const [booking, setBooking] = useState([]);
-  const history = useHistory();
+  const navigate = useNavigate();
   const [isDeleted, setIsDeleted] = useState(false);
   const email = `${user.email}`;
 
@@ -19,25 +19,25 @@ const BookingDetails = () => {
 
   const handleDelete = (id) => {
     console.log(id);
-    const proceed = window.confirm('Are you sure you want to delete?');
+    const proceed = window.confirm("Are you sure you want to delete?");
     if (proceed) {
       fetch(`https://tour-planners.herokuapp.com/deleteTours/${id}`, {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' }
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
       })
-        .then(res => res.json())
-        .then(result => {
+        .then((res) => res.json())
+        .then((result) => {
           if (result.deletedCount > 0) {
-            alert('Deleted successfully')
+            alert("Deleted successfully");
           }
           setIsDeleted(result);
-        })
+        });
     }
   };
 
   const handleProcedToCheckout = () => {
-    history.push('/shipping')
-  }
+    navigate("/shipping");
+  };
 
   return (
     <div>
@@ -48,16 +48,29 @@ const BookingDetails = () => {
             <div className="row  text-center">
               {booking?.map((pd) => (
                 <div className="col-md-4" key={pd._id}>
-                  <div style={{ height: "800px" }} className="card mt-5 myCard ">
-                    <div style={{ height: "300px" }}className="inner">
-                      <img style={{ height: "300px" }} src={pd.img} className="card-img-top img-fluid" alt="..." />
+                  <div
+                    style={{ height: "800px" }}
+                    className="card mt-5 myCard "
+                  >
+                    <div style={{ height: "300px" }} className="inner">
+                      <img
+                        style={{ height: "300px" }}
+                        src={pd.img}
+                        className="card-img-top img-fluid"
+                        alt="..."
+                      />
                     </div>
                     <div className="card-body overflow-auto scrollbar-hidden">
                       <h5 className="card-title">{pd.name}</h5>
                       <strong className="card-text">{pd.location}</strong>
                       <p>{pd.description}</p>
                     </div>
-                    <button onClick={() => handleDelete(pd._id)} className="btn btn-danger m-2">Remove Booking</button>
+                    <button
+                      onClick={() => handleDelete(pd._id)}
+                      className="btn btn-danger m-2"
+                    >
+                      Remove Booking
+                    </button>
                   </div>
                 </div>
               ))}
@@ -65,34 +78,41 @@ const BookingDetails = () => {
           </div>
           <div className="col-md-3">
             <h2>You added all tours</h2>
-            {
-              booking?.map(dt => <div><table className="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Tours</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Name:</td>
-                    <td>{dt.name}</td>
-                  </tr>
-                  <tr>
-                    <td >Location:</td>
-                    <td >{dt.location}</td>
-                  </tr>
-                  <tr>
-                    <td >Price</td>
-                    <td >$ {dt.price}</td>
-                  </tr>
-                </tbody>
-              </table></div>)
-            }
-            <button onClick={handleProcedToCheckout} className="btn btn-info rounded-pill m-5">Proceed to checkout</button>
+            {booking?.map((dt) => (
+              <div>
+                <table className="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Tours</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Name:</td>
+                      <td>{dt.name}</td>
+                    </tr>
+                    <tr>
+                      <td>Location:</td>
+                      <td>{dt.location}</td>
+                    </tr>
+                    <tr>
+                      <td>Price</td>
+                      <td>$ {dt.price}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            ))}
+            <button
+              onClick={handleProcedToCheckout}
+              className="btn btn-info rounded-pill m-5"
+            >
+              Proceed to checkout
+            </button>
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 
