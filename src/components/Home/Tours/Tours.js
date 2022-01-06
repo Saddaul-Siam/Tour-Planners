@@ -3,13 +3,13 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router";
-import useAuth from "../../../Hooks/useAuth";
+import { addToDb } from "../../../utilities/fakedb";
 import "./Tours.css";
 
 const Tours = () => {
   const [tours, setTours] = useState([]);
-  const { user } = useAuth();
   const navigate = useNavigate();
+  const Swal = require("sweetalert2");
 
   useEffect(() => {
     fetch("https://tour-planners.herokuapp.com/tours")
@@ -17,31 +17,17 @@ const Tours = () => {
       .then((data) => setTours(data));
   }, []);
 
-  const handleAddToCart = (index) => {
-    if (user.email) {
-      const data = tours[index];
-      data.email = `${user.email}`;
-      data.status = "pending";
-      console.log(data);
-      fetch(`https://tour-planners.herokuapp.com/addBooking`, {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(data),
-      })
-        .then((res) => res.json())
-        .then((result) => {
-          if (result.insertedId) {
-            alert(
-              "Successfully Added !! See Details On Booking Details Route "
-            );
-            // window.location.reload();
-          } else {
-            alert("add korte pari nai");
-          }
-        });
-    } else {
-      navigate("/login");
-    }
+  const handleAddToDb = (id) => {
+    addToDb(id);
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Add to cart successful",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // window.location.reload();
+      }
+    });
   };
   const handleClick = () => {
     navigate("/bookingDetails");
@@ -53,7 +39,7 @@ const Tours = () => {
       <h5>Modern & Beautiful</h5>
       <div className="container py-5">
         <div className="row">
-          {tours.map((service, index) => (
+          {tours.map((service) => (
             <div className="col-sm-6 col-md-6 col-lg-3" key={service._id}>
               <div className="card mt-5 myCard" style={{ minHeight: "37rem" }}>
                 <div className="inner">
@@ -78,7 +64,7 @@ const Tours = () => {
                 <div className="card-footer d-flex justify-content-between">
                   <h4>Price: $ {service.price}</h4>
                   <Button
-                    onClick={() => handleAddToCart(index)}
+                    onClick={() => handleAddToDb(service._id)}
                     variant="info"
                     className="rounded-pill"
                   >
