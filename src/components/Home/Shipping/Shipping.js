@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import useAuth from "../../../Hooks/useAuth";
+import { clearTheCart, getStoredCart } from "../../../utilities/fakedb";
 import "./Shipping.css";
 
 const Shipping = () => {
+  const Swal = require("sweetalert2");
   const {
     register,
     handleSubmit,
@@ -13,16 +15,33 @@ const Shipping = () => {
   } = useForm();
   const { user } = useAuth();
   const navigate = useNavigate();
-  const [orders, setOrders] = useState([]);
+  const [tours, setTours] = useState([]);
+  const [carts, setCarts] = useState([]);
 
   useEffect(() => {
-    fetch(`https://tour-planners.herokuapp.com/myBooking/${user.email}`)
+    fetch("https://tour-planners.herokuapp.com/tours")
       .then((res) => res.json())
-      .then((data) => setOrders(data));
-  }, [user.email]);
+      .then((data) => setTours(data));
+  }, []);
+
+  useEffect(() => {
+    if (tours.length) {
+      const saveCart = getStoredCart();
+      const storedCart = [];
+      for (const key in saveCart) {
+        const addedProduct = tours.find((product) => product._id === key);
+        if (addedProduct) {
+          const quantity = saveCart[key];
+          addedProduct.quantity = quantity;
+          storedCart.push(addedProduct);
+        }
+      }
+      setCarts(storedCart);
+    }
+  }, [tours]);
 
   const onSubmit = (data) => {
-    data.order = orders;
+    data.order = carts;
     data.status = "pending";
     fetch(`https://tour-planners.herokuapp.com/addOrder`, {
       method: "POST",
@@ -32,25 +51,21 @@ const Shipping = () => {
       .then((res) => res.json())
       .then((result) => {
         if (result.insertedId) {
-          alert("Order processed Successfully");
-          handleDelete();
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Add to cart successful",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              reset();
+              clearTheCart();
+              navigate("/dashboard/myOrders");
+            }
+          });
         }
-      })
-      .finally(() => {
-        reset();
-        navigate("/dashboard/myOrders");
       });
   };
 
-  const handleDelete = () => {
-    fetch(`https://tour-planners.herokuapp.com/deleteTours`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-      });
-  };
   return (
     <div className="d-flex justify-content-center">
       <div>
