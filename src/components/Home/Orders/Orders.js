@@ -10,9 +10,6 @@ const Orders = (props) => {
 
   return (
     <div>
-      <div className="d-flex justify-content-center pb-5">
-        <h2>My orders</h2>
-      </div>
       <Table responsive striped bordered hover variant="dark">
         {/* table header */}
         <thead>

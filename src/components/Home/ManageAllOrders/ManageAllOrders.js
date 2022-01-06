@@ -62,6 +62,10 @@ const ManageAllOrders = () => {
             position: "center",
             icon: "success",
             title: "Order approved successful",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.reload();
+            }
           });
         }
       });

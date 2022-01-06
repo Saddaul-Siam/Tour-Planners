@@ -15,7 +15,9 @@ const MyOrders = () => {
 
   return (
     <div>
-      <h2 className="py-5">This is my orders :{myOrder.length}</h2>
+      <div className="pb-5">
+        <h2>My orders: {myOrder.length}</h2>
+      </div>
       {myOrder.map((order) => (
         <Orders key={order._id} order={order}></Orders>
       ))}
