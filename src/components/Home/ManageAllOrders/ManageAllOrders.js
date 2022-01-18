@@ -9,7 +9,7 @@ const ManageAllOrders = () => {
     fetch("https://tour-planners.herokuapp.com/orders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
-  }, []);
+  }, [orders]);
 
   const handleDeleteOrder = (id) => {
     Swal.fire({
@@ -34,10 +34,6 @@ const ManageAllOrders = () => {
                 position: "center",
                 icon: "success",
                 title: "Your order cancel successful",
-              }).then((result) => {
-                if (result.isConfirmed) {
-                  window.location.reload();
-                }
               });
             }
           });
@@ -83,7 +79,7 @@ const ManageAllOrders = () => {
           <Spinner animation="grow" variant="info" />
         </div>
       )}
-      {orders.length && (
+      {orders.length ? (
         <Table responsive striped bordered hover variant="dark">
           {/* table header */}
           <thead>
@@ -131,6 +127,8 @@ const ManageAllOrders = () => {
             ))}
           </tbody>
         </Table>
+      ) : (
+        ""
       )}
     </Container>
   );

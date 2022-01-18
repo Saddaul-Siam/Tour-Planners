@@ -18,12 +18,14 @@ import Register from "./components/Home/Register/Register";
 import UpdateStatus from "./components/Home/UpdateStatus/UpdateStatus";
 import ManageAllOrders from "./components/Home/ManageAllOrders/ManageAllOrders";
 import AddAdmin from "./components/Home/Dashboard/AddAdmin/AddAdmin";
-import ManageAllProducts from "./components/Home/Dashboard/manageAllProducts/ManageAllProducts";
 import AddReview from "./components/Home/Dashboard/AddReview/AddReview";
+import ManageAllProducts from "./components/Home/Dashboard/ManageAllProducts/ManageAllProducts";
+import DashboardHome from "./components/Home/Dashboard/DashboardHome/DashboardHome";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App mt-5">
+      {/* <div className=""></div> */}
       <AuthProvider>
         <Router>
           <Header></Header>
@@ -66,6 +68,14 @@ function App() {
                 </PrivetRoute>
               }
             >
+              <Route
+                path="/dashboard/"
+                element={
+                  <PrivetRoute>
+                    <DashboardHome />
+                  </PrivetRoute>
+                }
+              />
               <Route
                 path="/dashboard/bookingDetails"
                 element={

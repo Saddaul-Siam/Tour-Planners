@@ -23,7 +23,7 @@ const Dashboard = () => {
             {/* {admin ? "admin" : `${user.displayName}`} */}
             {user.displayName}
           </div>
-          <ListGroup variant="flush" className=" text-start nav-item">
+          <ListGroup variant="flush" className=" text-start nav-item ms-2">
             <NavLink
               className={({ isActive }) => (isActive ? "active" : "")}
               to={`/dashboard`}
@@ -104,10 +104,10 @@ const Dashboard = () => {
           </span>
         </div>
         <Col className="main-content">
+          {/* nested routes */}
           <div className="content">
             <Outlet />
           </div>
-          {/* nested routes */}
         </Col>
       </Row>
     </Container>
@@ -115,27 +115,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-/* import React, { useEffect, useState } from 'react';
-import DashboardDetails from '../DashboardDetails/DashboardDetails';
-
-const Dashboard = () => {
-  const [orders, setOrders] = useState([])
-  useEffect(() => {
-    fetch("https://tour-planners.herokuapp.com/orders")
-      .then(res => res.json())
-      .then(data => setOrders(data))
-  }, []);
-  console.log(orders);
-  return (
-    <div className="">
-      <h2 className="py-3">This is a Dashboard only use Admin</h2>
-      <h4 className="py-3">All Orders Here :{orders.length}</h4>
-      {
-        orders.map(order => <DashboardDetails order={order} key={order._id}></DashboardDetails>)
-      }
-    </div>
-  );
-};
-
-export default Dashboard; */

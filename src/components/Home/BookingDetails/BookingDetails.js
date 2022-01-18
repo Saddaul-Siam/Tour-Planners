@@ -9,7 +9,7 @@ const BookingDetails = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [carts, setCarts] = useState([]);
-  console.log(carts);
+  
   useEffect(() => {
     fetch("https://tour-planners.herokuapp.com/tours")
       .then((res) => res.json())
